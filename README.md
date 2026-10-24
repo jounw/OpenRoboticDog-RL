@@ -14,9 +14,9 @@ It is based on the robot design of [garciamathias/OpenRoboticDog](https://github
 
 The policy is under active development and will keep being upgraded.
 
-| Version | Date | Trained on | Notes |
-|---|---|---|---|
-| `g4s_6_hybrid_filter_282M` (current) | 2026-10-23 | Google Colab, single G4 GPU, 281.8 M steps in 2 h 16 min | First release. Forward/backward and turning work well, sideways is weaker |
+| Version | Trained on | Notes |
+|---|---|---|
+| `g4s_6_hybrid_filter_282M` (current) | Google Colab, single G4 GPU, 281.8 M steps in 2 h 16 min | First release. Forward/backward and turning work well, sideways is weaker |
 
 ## Quick start
 
