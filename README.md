@@ -5,11 +5,13 @@ A reinforcement-learned, joystick-controlled walking policy for the OpenRoboticD
 The policy is trained in simulation (MuJoCo Playground + Brax PPO) and runs on the real robot from a Raspberry Pi, driven from a phone web joystick.
 It is based on the robot design of [garciamathias/OpenRoboticDog](https://github.com/garciamathias/OpenRoboticDog). Everything this fork adds is in [`rl/`](rl/).
 
-| The robot | Walking on the real robot | The policy in the sim |
-|---|---|---|
-| <img src="rl/docs/robot.jpg" alt="OpenRoboticDog standing in its default pose" width="280"> | <img src="rl/docs/real_walk.gif" alt="OpenRoboticDog walking on the floor with the learned policy" width="280"> | <img src="rl/docs/sim_demo.gif" alt="Policy in the sim: forward, backward, sideways, turning" width="280"> |
+<p align="center">
+  <img src="rl/docs/robot.jpg" alt="OpenRoboticDog standing in its default pose" width="260">
+  <img src="rl/docs/real_walk.gif" alt="OpenRoboticDog walking on the floor with the learned policy" width="260">
+  <img src="rl/docs/sim_demo.gif" alt="Policy in the sim: forward, backward, sideways, turning" width="260">
+</p>
 
-The robot: 3D-printed body, 12 STS3215 servos, Raspberry Pi 5, BNO055 IMU, 1.5 kg. Real walking: learned policy on the floor, real time (1×), joystick control. Sim: forward, backward, sideways and turning, 5 s each.
+Left to right: the robot (3D-printed body, 12 STS3215 servos, Raspberry Pi 5, BNO055 IMU, 1.5 kg), walking on the real robot (learned policy, real time, joystick control), and the policy in the sim (forward, backward, sideways and turning, 5 s each).
 
 ## Policy status
 
