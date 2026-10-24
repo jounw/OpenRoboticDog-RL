@@ -1,0 +1,19 @@
+[Unit]
+Description=OpenRoboticDog policy runner with web joystick (port 8080)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=admin
+WorkingDirectory=/home/admin/openroboticdog/deploy
+# wait for the servo USB (HAT switch on USB) before starting
+ExecStartPre=/bin/sh -c 'for i in $(seq 1 60); do [ -e /dev/ttyACM0 ] && exit 0; sleep 1; done; exit 1'
+ExecStart=/home/admin/openroboticdog/.venv/bin/python run_policy.py --policy policies/g4s_6_hybrid_filter_282M.npz --pwm --port 8080 --log /home/admin/joy_boot.csv
+KillSignal=SIGINT
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

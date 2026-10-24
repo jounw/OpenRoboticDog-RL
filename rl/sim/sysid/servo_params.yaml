@@ -1,0 +1,25 @@
+# Servo model (measured and fitted 2026-10-12)
+# Model: command -> ServoProfile(a_max, v_max) -> MuJoCo position actuator (kp, kv)
+#   In the training env, the policy output (target angle) must pass through ServoProfile before going to ctrl to match the hardware.
+#
+# Data: 20 in-air steps on the FR leg (sysid.fit_servo), on-ground stand/crouch with 12 joints (sysid.replay_ground)
+#   kp 25/kv 1.0: air 0.31°, ground 0.60° / kp 40/kv 1.6: air 0.34°, ground 0.51° <- chosen / kp 60/kv 2.4: 0.37°, 0.49°
+#   kv/kp = 0.04 s (slow tracking) is set from in-air data. kp is set from ground sag (the real servo is stiffer under static load).
+# delay of 0 fits best. Bus communication latency should be added via domain randomization (0~40 ms) during training.
+# Recommended domain randomization ranges: kp 25~60 (kv = 0.04 × kp), a_max 7~10
+delay: 0.0
+a_max: 8.5     # rad/s², servo internal trajectory generator (Acceleration register values above 50 have no effect)
+v_max: 4.7     # rad/s, spec value (measured steps never reach this speed)
+kp: 40.0
+kv: 1.6
+# On-ground measurements: load up to 5.6%, total current of all 12 up to 0.58 A: standing/crouching is far below the torque limit (2.9 N·m).
+# Torque limit (forcerange) not yet measured -> keep the spec value (30 kg·cm ≈ 2.9 N·m).
+#
+# 2026-10-21 validation (Pi + HAT USB/CH343 path, battery 12.2~12.3 V, 116 in-air steps, all 12 servos):
+#   Refitting from the values above as a starting point gives the same values. Overall RMSE 0.33°.
+#   Fitting each joint separately also gives a_max 8.5, kp 40, kv 1.6 for all -> almost no unit-to-unit variation.
+#   Only the two front hips: delay 0.01 s, RMSE 0.48° (others 0.25~0.34°): attributed to gravity load from the 45° hip horn assembly.
+#   Peak speed on 0.8 rad steps 2.5~2.6 rad/s = sqrt(a_max·Δq): within the joint range v_max (4.7) is never reached -> a_max is all that matters.
+#   Communication (Pi, 1 Mbps): 12-servo position SyncRead 3.0 ms, 15 bytes 4.0 ms, SyncWrite 0.5 ms, 50 Hz read+write loop max 3.8 ms, 0 failures.
+# Updated domain randomization recommendation: kp 30~55 (kv = 0.04 × kp), a_max 7.5~9.5, delay 0~15 ms (hip +10 ms more).
+# Data: data/servo/20261021_224030_air_hips.csv, 20261021_224107_air_legs.csv

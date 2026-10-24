@@ -1,0 +1,30 @@
+# Deploy loop config (deploy/run_policy.py). Values that must match the training env (sim/learn/env.py) are marked.
+ctrl_hz: 50                      # = 1/ctrl_dt
+action_scale: 0.4                # must match env.default_config().action_scale
+home_pose:                       # must match home_pose in sim/robot_model/openroboticdog.yaml (rad)
+  hip: 0.0
+  thigh: -0.5236
+  calf: 0.2793
+joint_limits:                    # rad, model joint ranges (same as sim MJCF). Left/right hips are mirrored
+  hip_right: [-1.6406, 0.4887]
+  hip_left: [-0.4887, 1.6406]
+  thigh: [-2.0944, 1.0472]
+  calf: [-0.9948, 1.309]
+command_max: [0.3, 0.15, 1.2]    # vx, vy, yaw at full joystick deflection (match env command_config.a)
+safety:
+  min_voltage: 10.5              # V, at or below: stop and torque off
+  max_tilt_deg: 60               # body tilt, torque off if exceeded
+  command_timeout_s: 0.5         # zero command if joystick updates stop
+  max_joint_step_rad: 0.6        # clip target jumps larger than this per control step
+idle_hold_s: 1.0                 # after this long at zero command, hold the default standing pose instead of the policy and stop fully (0 = off)
+idle_blend_s: 0.5                # blend-in time to the default standing pose
+imu_mount_quat: [0.99908, 0.00971, -0.04189, 0.0]   # IMU → body (w, x, y, z). Set 2026-10-23 from gravity measured in the default standing pose: pitch 4.8°, roll 1.1°
+pwm:                             # --pwm mode (servo Mode 2 + PD on the Pi). Update values after fitting with pwm_sysid.py
+  kp: 8000                       # duty per rad (saturates at 0.1 rad error; torque equivalent ≈ 23 N·m/rad)
+  kd: 150                        # duty per rad/s
+  duty_max: 800                  # cap out of ±1000 (heat protection)
+  rate_hz: 250
+  current_max_ma: 2500           # measured max 2.1 A in-air accel/decel (duty 800). Stop if exceeded
+  temp_max: 65
+  hold_hips: true                # hold hips in position mode instead of PWM (jump on mode switch, 2026-10-22)
+leg_plane_yaw_deg: {}            # correction for twist of the real leg swing plane (°, CCW + seen from above). e.g. {FR: 7, FL: 7, RR: -7, RL: -7}

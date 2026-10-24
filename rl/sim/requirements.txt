@@ -1,0 +1,8 @@
+mujoco>=3.3
+numpy>=2.0
+pyyaml>=6.0
+pytest>=8.0
+# Stage 3 training (learn/). Mac: jax[cpu]. H100: jax[cuda12] and warp-lang (learn/README.md)
+jax>=0.11
+playground>=0.2
+brax>=0.14

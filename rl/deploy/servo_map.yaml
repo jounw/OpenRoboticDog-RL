@@ -1,0 +1,32 @@
+# Joint ↔ servo ID mapping (finalized 2026-10-08)
+#
+# Joint names match the simulator model (sim/assets/openroboticdog).
+# Front legs 1-6, rear legs 7-12 (same split as servo_config.json in the original repo).
+# Wiring: 6 front-leg servos daisy-chained on HAT TTL port A, 6 rear-leg servos on port B.
+#
+# direction (rotation sign) and zero (servo value at joint 0°) are filled in by the calibration script after assembly.
+# Assembly puts every servo at 2048 (marks aligned) in the Fusion assembly pose, so zero ends up near 2048.
+# Exception (2026-10-12): hip horns were assembled rotated 45° (512 steps) → at 2048 the legs splay out 45°.
+#   Values that make the legs vertical (checked visually): FR·RL 1536, FL·RR 2560. Left/right and front/rear are mirrored, so signs alternate.
+# thigh·calf zero (2026-10-12, set by the user in the standing pose): thigh ±30° (341 steps), calf ±45° (512 steps).
+#   Right legs: thigh +, calf −; left legs opposite (FR thigh 2389·calf 1536, FL 1707·2560, RR 2389·1536, RL 1707·2560).
+#   The model's default pose must be set so this real standing pose = simulator joint 0°.
+# direction (2026-10-12, checked visually by moving each servo +114 steps): +1 if the simulator joint angle
+#   increases as the servo value increases. Simulator + direction: hip moves the foot to the robot's left, thigh swings the leg forward, calf swings the toe forward.
+#   Result: right-leg thigh·calf -1, left +1 (left/right mirror). hip: front -1, rear +1 (front and rear servos face opposite ways).
+#   Verified consistent with the zeros (hip ±45° from 2048, thigh 2048 = Fusion pose, calf 2048 = Fusion pose -29°).
+# Conversion: servo value = zero + direction × (joint angle - default pose angle) × 4096 / 2π
+#   Default pose angles are home_pose in sim/robot_model/openroboticdog.yaml (hip 0, thigh -0.5236, calf 0.2793).
+servos:
+  FR_hip_joint:   {id: 1,  direction: -1, zero: 1536}
+  FR_thigh_joint: {id: 2,  direction: -1, zero: 2389}
+  FR_calf_joint:  {id: 3,  direction: -1, zero: 1536}
+  FL_hip_joint:   {id: 4,  direction: -1, zero: 2560}
+  FL_thigh_joint: {id: 5,  direction: +1, zero: 1707}
+  FL_calf_joint:  {id: 6,  direction: +1, zero: 2560}
+  RR_hip_joint:   {id: 7,  direction: +1, zero: 2560}
+  RR_thigh_joint: {id: 8,  direction: -1, zero: 2389}
+  RR_calf_joint:  {id: 9,  direction: -1, zero: 1536}
+  RL_hip_joint:   {id: 10, direction: +1, zero: 1536}
+  RL_thigh_joint: {id: 11, direction: +1, zero: 1707}
+  RL_calf_joint:  {id: 12, direction: +1, zero: 2560}

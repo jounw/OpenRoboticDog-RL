@@ -1,0 +1,336 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="openroboticdog">
+  <compiler angle="radian" meshdir="meshes" autolimits="true" />
+  <option timestep="0.002" />
+  <visual>
+    <global offwidth="1920" offheight="1080" />
+    <quality shadowsize="4096" />
+    <headlight ambient="0.35 0.35 0.35" diffuse="0.5 0.5 0.5" />
+  </visual>
+  <default>
+    <default class="robot">
+      <joint damping="0.1" armature="0.01" frictionloss="0.02" />
+      <position kp="40" kv="1.6" forcerange="-2.9 2.9" />
+      <default class="visual">
+        <geom contype="0" conaffinity="0" group="2" />
+      </default>
+      <default class="collision">
+        <geom group="3" friction="0.8 0.02 0.01" />
+      </default>
+    </default>
+  </default>
+  <asset>
+    <texture name="skybox" type="skybox" builtin="gradient" rgb1="0.75 0.85 0.95" rgb2="0.3 0.4 0.5" width="512" height="512" />
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1="0.82 0.82 0.82" rgb2="0.68 0.68 0.68" />
+    <material name="floor" texture="grid" texrepeat="8 8" reflectance="0.1" />
+    <material name="printed" rgba="0.95 0.55 0.15 1" specular="0.3" />
+    <material name="servo" rgba="0.12 0.12 0.13 1" specular="0.5" />
+    <material name="electronics" rgba="0.1 0.45 0.25 1" specular="0.2" />
+    <mesh name="m000_Body_1_1_Back_1" file="m000_Body_1_1_Back_1.stl" inertia="exact" />
+    <mesh name="m001_Body_1_1_Body_1" file="m001_Body_1_1_Body_1.stl" inertia="exact" />
+    <mesh name="m002_Body_1_1_Back_2" file="m002_Body_1_1_Back_2.stl" inertia="exact" />
+    <mesh name="m003_Body_1_1_Liaison_1" file="m003_Body_1_1_Liaison_1.stl" inertia="exact" />
+    <mesh name="m004_Body_1_1" file="m004_Body_1_1.stl" inertia="exact" />
+    <mesh name="m005_paule_2_PAULE_1_ST3215_1_ZK_122_1" file="m005_paule_2_PAULE_1_ST3215_1_ZK_122_1.stl" inertia="exact" />
+    <mesh name="m006_paule_2_PAULE_1_ST3215_1_SG_ZIJI_15_1" file="m006_paule_2_PAULE_1_ST3215_1_SG_ZIJI_15_1.stl" inertia="exact" />
+    <mesh name="m007_paule_2_PAULE_1_ST3215_1_XG_ZIJI_16_1" file="m007_paule_2_PAULE_1_ST3215_1_XG_ZIJI_16_1.stl" inertia="exact" />
+    <mesh name="m008_paule_2_PAULE_1_ST3215_1_MOTOR_1723_3_1" file="m008_paule_2_PAULE_1_ST3215_1_MOTOR_1723_3_1.stl" inertia="exact" />
+    <mesh name="m009_paule_2_PAULE_1_ST3215_1_PCB_CHAZUO_92_1" file="m009_paule_2_PAULE_1_ST3215_1_PCB_CHAZUO_92_1.stl" inertia="exact" />
+    <mesh name="m010_paule_2_PAULE_1_ST3215_1_GE_27_1" file="m010_paule_2_PAULE_1_ST3215_1_GE_27_1.stl" inertia="exact" />
+    <mesh name="m011_paule_2_PAULE_1_ST3215_1_v2_1" file="m011_paule_2_PAULE_1_ST3215_1_v2_1.stl" inertia="exact" />
+    <mesh name="m012_paule_2_PAULE_1_ST3215_1_v2_1" file="m012_paule_2_PAULE_1_ST3215_1_v2_1.stl" inertia="exact" />
+    <mesh name="m013_paule_2_PAULE_1" file="m013_paule_2_PAULE_1.stl" inertia="exact" />
+    <mesh name="m014_Genoux_2_ST3215_3_ZK_122_1" file="m014_Genoux_2_ST3215_3_ZK_122_1.stl" inertia="exact" />
+    <mesh name="m015_Genoux_2_ST3215_3_SG_ZIJI_15_1" file="m015_Genoux_2_ST3215_3_SG_ZIJI_15_1.stl" inertia="exact" />
+    <mesh name="m016_Genoux_2_ST3215_3_XG_ZIJI_16_1" file="m016_Genoux_2_ST3215_3_XG_ZIJI_16_1.stl" inertia="exact" />
+    <mesh name="m017_Genoux_2_ST3215_3_MOTOR_1723_3_1" file="m017_Genoux_2_ST3215_3_MOTOR_1723_3_1.stl" inertia="exact" />
+    <mesh name="m018_Genoux_2_ST3215_3_PCB_CHAZUO_92_1" file="m018_Genoux_2_ST3215_3_PCB_CHAZUO_92_1.stl" inertia="exact" />
+    <mesh name="m019_Genoux_2_ST3215_3_GE_27_1" file="m019_Genoux_2_ST3215_3_GE_27_1.stl" inertia="exact" />
+    <mesh name="m020_Genoux_2_ST3215_3_v2_1" file="m020_Genoux_2_ST3215_3_v2_1.stl" inertia="exact" />
+    <mesh name="m021_Genoux_2_ST3215_3_v2_1" file="m021_Genoux_2_ST3215_3_v2_1.stl" inertia="exact" />
+    <mesh name="m022_Genoux_2_ST3215_5_ZK_122_1" file="m022_Genoux_2_ST3215_5_ZK_122_1.stl" inertia="exact" />
+    <mesh name="m023_Genoux_2_ST3215_5_SG_ZIJI_15_1" file="m023_Genoux_2_ST3215_5_SG_ZIJI_15_1.stl" inertia="exact" />
+    <mesh name="m024_Genoux_2_ST3215_5_XG_ZIJI_16_1" file="m024_Genoux_2_ST3215_5_XG_ZIJI_16_1.stl" inertia="exact" />
+    <mesh name="m025_Genoux_2_ST3215_5_MOTOR_1723_3_1" file="m025_Genoux_2_ST3215_5_MOTOR_1723_3_1.stl" inertia="exact" />
+    <mesh name="m026_Genoux_2_ST3215_5_PCB_CHAZUO_92_1" file="m026_Genoux_2_ST3215_5_PCB_CHAZUO_92_1.stl" inertia="exact" />
+    <mesh name="m027_Genoux_2_ST3215_5_GE_27_1" file="m027_Genoux_2_ST3215_5_GE_27_1.stl" inertia="exact" />
+    <mesh name="m028_Genoux_2_ST3215_5_v2_1" file="m028_Genoux_2_ST3215_5_v2_1.stl" inertia="exact" />
+    <mesh name="m029_Genoux_2_ST3215_5_v2_1" file="m029_Genoux_2_ST3215_5_v2_1.stl" inertia="exact" />
+    <mesh name="m030_Genoux_2" file="m030_Genoux_2.stl" inertia="exact" />
+    <mesh name="m031_Jambes_2_Jambe_2" file="m031_Jambes_2_Jambe_2.stl" inertia="exact" />
+    <mesh name="m032_paule_4_PAULE_1_ST3215_1_ZK_122_1" file="m032_paule_4_PAULE_1_ST3215_1_ZK_122_1.stl" inertia="exact" />
+    <mesh name="m033_paule_4_PAULE_1_ST3215_1_SG_ZIJI_15_1" file="m033_paule_4_PAULE_1_ST3215_1_SG_ZIJI_15_1.stl" inertia="exact" />
+    <mesh name="m034_paule_4_PAULE_1_ST3215_1_XG_ZIJI_16_1" file="m034_paule_4_PAULE_1_ST3215_1_XG_ZIJI_16_1.stl" inertia="exact" />
+    <mesh name="m035_paule_4_PAULE_1_ST3215_1_MOTOR_1723_3_1" file="m035_paule_4_PAULE_1_ST3215_1_MOTOR_1723_3_1.stl" inertia="exact" />
+    <mesh name="m036_paule_4_PAULE_1_ST3215_1_PCB_CHAZUO_92_1" file="m036_paule_4_PAULE_1_ST3215_1_PCB_CHAZUO_92_1.stl" inertia="exact" />
+    <mesh name="m037_paule_4_PAULE_1_ST3215_1_GE_27_1" file="m037_paule_4_PAULE_1_ST3215_1_GE_27_1.stl" inertia="exact" />
+    <mesh name="m038_paule_4_PAULE_1_ST3215_1_v2_1" file="m038_paule_4_PAULE_1_ST3215_1_v2_1.stl" inertia="exact" />
+    <mesh name="m039_paule_4_PAULE_1_ST3215_1_v2_1" file="m039_paule_4_PAULE_1_ST3215_1_v2_1.stl" inertia="exact" />
+    <mesh name="m040_paule_4_PAULE_1" file="m040_paule_4_PAULE_1.stl" inertia="exact" />
+    <mesh name="m041_Genoux_4_ST3215_1_ZK_122_1" file="m041_Genoux_4_ST3215_1_ZK_122_1.stl" inertia="exact" />
+    <mesh name="m042_Genoux_4_ST3215_1_SG_ZIJI_15_1" file="m042_Genoux_4_ST3215_1_SG_ZIJI_15_1.stl" inertia="exact" />
+    <mesh name="m043_Genoux_4_ST3215_1_XG_ZIJI_16_1" file="m043_Genoux_4_ST3215_1_XG_ZIJI_16_1.stl" inertia="exact" />
+    <mesh name="m044_Genoux_4_ST3215_1_MOTOR_1723_3_1" file="m044_Genoux_4_ST3215_1_MOTOR_1723_3_1.stl" inertia="exact" />
+    <mesh name="m045_Genoux_4_ST3215_1_PCB_CHAZUO_92_1" file="m045_Genoux_4_ST3215_1_PCB_CHAZUO_92_1.stl" inertia="exact" />
+    <mesh name="m046_Genoux_4_ST3215_1_GE_27_1" file="m046_Genoux_4_ST3215_1_GE_27_1.stl" inertia="exact" />
+    <mesh name="m047_Genoux_4_ST3215_1_v2_1" file="m047_Genoux_4_ST3215_1_v2_1.stl" inertia="exact" />
+    <mesh name="m048_Genoux_4_ST3215_1_v2_1" file="m048_Genoux_4_ST3215_1_v2_1.stl" inertia="exact" />
+    <mesh name="m049_Genoux_4_ST3215_2_ZK_122_1" file="m049_Genoux_4_ST3215_2_ZK_122_1.stl" inertia="exact" />
+    <mesh name="m050_Genoux_4_ST3215_2_SG_ZIJI_15_1" file="m050_Genoux_4_ST3215_2_SG_ZIJI_15_1.stl" inertia="exact" />
+    <mesh name="m051_Genoux_4_ST3215_2_XG_ZIJI_16_1" file="m051_Genoux_4_ST3215_2_XG_ZIJI_16_1.stl" inertia="exact" />
+    <mesh name="m052_Genoux_4_ST3215_2_MOTOR_1723_3_1" file="m052_Genoux_4_ST3215_2_MOTOR_1723_3_1.stl" inertia="exact" />
+    <mesh name="m053_Genoux_4_ST3215_2_PCB_CHAZUO_92_1" file="m053_Genoux_4_ST3215_2_PCB_CHAZUO_92_1.stl" inertia="exact" />
+    <mesh name="m054_Genoux_4_ST3215_2_GE_27_1" file="m054_Genoux_4_ST3215_2_GE_27_1.stl" inertia="exact" />
+    <mesh name="m055_Genoux_4_ST3215_2_v2_1" file="m055_Genoux_4_ST3215_2_v2_1.stl" inertia="exact" />
+    <mesh name="m056_Genoux_4_ST3215_2_v2_1" file="m056_Genoux_4_ST3215_2_v2_1.stl" inertia="exact" />
+    <mesh name="m057_Genoux_4" file="m057_Genoux_4.stl" inertia="exact" />
+    <mesh name="m058_Jambes_4_Jambe_1" file="m058_Jambes_4_Jambe_1.stl" inertia="exact" />
+    <mesh name="m059_paule_1_PAULE_1_ST3215_1_ZK_122_1" file="m059_paule_1_PAULE_1_ST3215_1_ZK_122_1.stl" inertia="exact" />
+    <mesh name="m060_paule_1_PAULE_1_ST3215_1_SG_ZIJI_15_1" file="m060_paule_1_PAULE_1_ST3215_1_SG_ZIJI_15_1.stl" inertia="exact" />
+    <mesh name="m061_paule_1_PAULE_1_ST3215_1_XG_ZIJI_16_1" file="m061_paule_1_PAULE_1_ST3215_1_XG_ZIJI_16_1.stl" inertia="exact" />
+    <mesh name="m062_paule_1_PAULE_1_ST3215_1_MOTOR_1723_3_1" file="m062_paule_1_PAULE_1_ST3215_1_MOTOR_1723_3_1.stl" inertia="exact" />
+    <mesh name="m063_paule_1_PAULE_1_ST3215_1_PCB_CHAZUO_92_1" file="m063_paule_1_PAULE_1_ST3215_1_PCB_CHAZUO_92_1.stl" inertia="exact" />
+    <mesh name="m064_paule_1_PAULE_1_ST3215_1_GE_27_1" file="m064_paule_1_PAULE_1_ST3215_1_GE_27_1.stl" inertia="exact" />
+    <mesh name="m065_paule_1_PAULE_1_ST3215_1_v2_1" file="m065_paule_1_PAULE_1_ST3215_1_v2_1.stl" inertia="exact" />
+    <mesh name="m066_paule_1_PAULE_1_ST3215_1_v2_1" file="m066_paule_1_PAULE_1_ST3215_1_v2_1.stl" inertia="exact" />
+    <mesh name="m067_paule_1_PAULE_1" file="m067_paule_1_PAULE_1.stl" inertia="exact" />
+    <mesh name="m068_Genoux_1_ST3215_3_ZK_122_1" file="m068_Genoux_1_ST3215_3_ZK_122_1.stl" inertia="exact" />
+    <mesh name="m069_Genoux_1_ST3215_3_SG_ZIJI_15_1" file="m069_Genoux_1_ST3215_3_SG_ZIJI_15_1.stl" inertia="exact" />
+    <mesh name="m070_Genoux_1_ST3215_3_XG_ZIJI_16_1" file="m070_Genoux_1_ST3215_3_XG_ZIJI_16_1.stl" inertia="exact" />
+    <mesh name="m071_Genoux_1_ST3215_3_MOTOR_1723_3_1" file="m071_Genoux_1_ST3215_3_MOTOR_1723_3_1.stl" inertia="exact" />
+    <mesh name="m072_Genoux_1_ST3215_3_PCB_CHAZUO_92_1" file="m072_Genoux_1_ST3215_3_PCB_CHAZUO_92_1.stl" inertia="exact" />
+    <mesh name="m073_Genoux_1_ST3215_3_GE_27_1" file="m073_Genoux_1_ST3215_3_GE_27_1.stl" inertia="exact" />
+    <mesh name="m074_Genoux_1_ST3215_3_v2_1" file="m074_Genoux_1_ST3215_3_v2_1.stl" inertia="exact" />
+    <mesh name="m075_Genoux_1_ST3215_3_v2_1" file="m075_Genoux_1_ST3215_3_v2_1.stl" inertia="exact" />
+    <mesh name="m076_Genoux_1_ST3215_5_ZK_122_1" file="m076_Genoux_1_ST3215_5_ZK_122_1.stl" inertia="exact" />
+    <mesh name="m077_Genoux_1_ST3215_5_SG_ZIJI_15_1" file="m077_Genoux_1_ST3215_5_SG_ZIJI_15_1.stl" inertia="exact" />
+    <mesh name="m078_Genoux_1_ST3215_5_XG_ZIJI_16_1" file="m078_Genoux_1_ST3215_5_XG_ZIJI_16_1.stl" inertia="exact" />
+    <mesh name="m079_Genoux_1_ST3215_5_MOTOR_1723_3_1" file="m079_Genoux_1_ST3215_5_MOTOR_1723_3_1.stl" inertia="exact" />
+    <mesh name="m080_Genoux_1_ST3215_5_PCB_CHAZUO_92_1" file="m080_Genoux_1_ST3215_5_PCB_CHAZUO_92_1.stl" inertia="exact" />
+    <mesh name="m081_Genoux_1_ST3215_5_GE_27_1" file="m081_Genoux_1_ST3215_5_GE_27_1.stl" inertia="exact" />
+    <mesh name="m082_Genoux_1_ST3215_5_v2_1" file="m082_Genoux_1_ST3215_5_v2_1.stl" inertia="exact" />
+    <mesh name="m083_Genoux_1_ST3215_5_v2_1" file="m083_Genoux_1_ST3215_5_v2_1.stl" inertia="exact" />
+    <mesh name="m084_Genoux_1" file="m084_Genoux_1.stl" inertia="exact" />
+    <mesh name="m085_Jambes_1_Jambe_2" file="m085_Jambes_1_Jambe_2.stl" inertia="exact" />
+    <mesh name="m086_paule_3_PAULE_1_ST3215_1_ZK_122_1" file="m086_paule_3_PAULE_1_ST3215_1_ZK_122_1.stl" inertia="exact" />
+    <mesh name="m087_paule_3_PAULE_1_ST3215_1_SG_ZIJI_15_1" file="m087_paule_3_PAULE_1_ST3215_1_SG_ZIJI_15_1.stl" inertia="exact" />
+    <mesh name="m088_paule_3_PAULE_1_ST3215_1_XG_ZIJI_16_1" file="m088_paule_3_PAULE_1_ST3215_1_XG_ZIJI_16_1.stl" inertia="exact" />
+    <mesh name="m089_paule_3_PAULE_1_ST3215_1_MOTOR_1723_3_1" file="m089_paule_3_PAULE_1_ST3215_1_MOTOR_1723_3_1.stl" inertia="exact" />
+    <mesh name="m090_paule_3_PAULE_1_ST3215_1_PCB_CHAZUO_92_1" file="m090_paule_3_PAULE_1_ST3215_1_PCB_CHAZUO_92_1.stl" inertia="exact" />
+    <mesh name="m091_paule_3_PAULE_1_ST3215_1_GE_27_1" file="m091_paule_3_PAULE_1_ST3215_1_GE_27_1.stl" inertia="exact" />
+    <mesh name="m092_paule_3_PAULE_1_ST3215_1_v2_1" file="m092_paule_3_PAULE_1_ST3215_1_v2_1.stl" inertia="exact" />
+    <mesh name="m093_paule_3_PAULE_1_ST3215_1_v2_1" file="m093_paule_3_PAULE_1_ST3215_1_v2_1.stl" inertia="exact" />
+    <mesh name="m094_paule_3_PAULE_1" file="m094_paule_3_PAULE_1.stl" inertia="exact" />
+    <mesh name="m095_Genoux_3_ST3215_1_ZK_122_1" file="m095_Genoux_3_ST3215_1_ZK_122_1.stl" inertia="exact" />
+    <mesh name="m096_Genoux_3_ST3215_1_SG_ZIJI_15_1" file="m096_Genoux_3_ST3215_1_SG_ZIJI_15_1.stl" inertia="exact" />
+    <mesh name="m097_Genoux_3_ST3215_1_XG_ZIJI_16_1" file="m097_Genoux_3_ST3215_1_XG_ZIJI_16_1.stl" inertia="exact" />
+    <mesh name="m098_Genoux_3_ST3215_1_MOTOR_1723_3_1" file="m098_Genoux_3_ST3215_1_MOTOR_1723_3_1.stl" inertia="exact" />
+    <mesh name="m099_Genoux_3_ST3215_1_PCB_CHAZUO_92_1" file="m099_Genoux_3_ST3215_1_PCB_CHAZUO_92_1.stl" inertia="exact" />
+    <mesh name="m100_Genoux_3_ST3215_1_GE_27_1" file="m100_Genoux_3_ST3215_1_GE_27_1.stl" inertia="exact" />
+    <mesh name="m101_Genoux_3_ST3215_1_v2_1" file="m101_Genoux_3_ST3215_1_v2_1.stl" inertia="exact" />
+    <mesh name="m102_Genoux_3_ST3215_1_v2_1" file="m102_Genoux_3_ST3215_1_v2_1.stl" inertia="exact" />
+    <mesh name="m103_Genoux_3_ST3215_2_ZK_122_1" file="m103_Genoux_3_ST3215_2_ZK_122_1.stl" inertia="exact" />
+    <mesh name="m104_Genoux_3_ST3215_2_SG_ZIJI_15_1" file="m104_Genoux_3_ST3215_2_SG_ZIJI_15_1.stl" inertia="exact" />
+    <mesh name="m105_Genoux_3_ST3215_2_XG_ZIJI_16_1" file="m105_Genoux_3_ST3215_2_XG_ZIJI_16_1.stl" inertia="exact" />
+    <mesh name="m106_Genoux_3_ST3215_2_MOTOR_1723_3_1" file="m106_Genoux_3_ST3215_2_MOTOR_1723_3_1.stl" inertia="exact" />
+    <mesh name="m107_Genoux_3_ST3215_2_PCB_CHAZUO_92_1" file="m107_Genoux_3_ST3215_2_PCB_CHAZUO_92_1.stl" inertia="exact" />
+    <mesh name="m108_Genoux_3_ST3215_2_GE_27_1" file="m108_Genoux_3_ST3215_2_GE_27_1.stl" inertia="exact" />
+    <mesh name="m109_Genoux_3_ST3215_2_v2_1" file="m109_Genoux_3_ST3215_2_v2_1.stl" inertia="exact" />
+    <mesh name="m110_Genoux_3_ST3215_2_v2_1" file="m110_Genoux_3_ST3215_2_v2_1.stl" inertia="exact" />
+    <mesh name="m111_Genoux_3" file="m111_Genoux_3.stl" inertia="exact" />
+    <mesh name="m112_Jambes_3_Jambe_1" file="m112_Jambes_3_Jambe_1.stl" inertia="exact" />
+  </asset>
+  <worldbody>
+    <light pos="0 0 3" dir="0 0 -1" directional="true" />
+    <geom name="floor" type="plane" size="0 0 0.05" material="floor" />
+    <body name="trunk" pos="0.000616379 0 0.194444" childclass="robot">
+      <freejoint name="root" />
+      <site name="imu" pos="0 0 0" />
+      <geom name="trunk_box" type="box" size="0.15575 0.065 0.025" pos="0 0 0" mass="0" class="collision" />
+      <geom type="mesh" mesh="m000_Body_1_1_Back_1" mass="0.00597785" material="printed" class="visual" />
+      <geom type="mesh" mesh="m001_Body_1_1_Body_1" mass="0.292232" material="printed" class="visual" />
+      <geom type="mesh" mesh="m002_Body_1_1_Back_2" mass="0.00597785" material="printed" class="visual" />
+      <geom type="mesh" mesh="m003_Body_1_1_Liaison_1" mass="0.000991826" material="printed" class="visual" />
+      <geom type="mesh" mesh="m004_Body_1_1" mass="0.000991829" material="printed" class="visual" />
+      <geom name="battery" type="box" size="0.0525 0.017 0.0125" pos="0 0 -0.008" mass="0.185" material="electronics" class="visual" />
+      <geom name="pi5" type="box" size="0.0425 0.028 0.01" pos="0 0 0.01" mass="0.075" material="electronics" class="visual" />
+      <geom name="servo_hat" type="box" size="0.0325 0.028 0.006" pos="0 0 0.012" mass="0.082" material="electronics" class="visual" />
+      <geom name="imu" type="box" size="0.0125 0.009 0.0015" pos="0 0 0" mass="0.003" material="electronics" class="visual" />
+      <geom name="wiring" type="box" size="0.075 0.04 0.015" pos="0 0 0" mass="0.06" material="electronics" class="visual" />
+      <body name="FR_hip" pos="0.116533 -0.0245001 -0.000233457" childclass="robot">
+        <joint name="FR_hip_joint" axis="1 -7.66425e-05 0.000155608" range="-1.6406 0.4887" />
+        <geom type="mesh" mesh="m005_paule_2_PAULE_1_ST3215_1_ZK_122_1" mass="0.016468" material="servo" class="visual" />
+        <geom type="mesh" mesh="m006_paule_2_PAULE_1_ST3215_1_SG_ZIJI_15_1" mass="0.00985142" material="servo" class="visual" />
+        <geom type="mesh" mesh="m007_paule_2_PAULE_1_ST3215_1_XG_ZIJI_16_1" mass="0.012857" material="servo" class="visual" />
+        <geom type="mesh" mesh="m008_paule_2_PAULE_1_ST3215_1_MOTOR_1723_3_1" mass="0.00610717" material="servo" class="visual" />
+        <geom type="mesh" mesh="m009_paule_2_PAULE_1_ST3215_1_PCB_CHAZUO_92_1" mass="0.00143035" material="servo" class="visual" />
+        <geom type="mesh" mesh="m010_paule_2_PAULE_1_ST3215_1_GE_27_1" mass="0.000953305" material="servo" class="visual" />
+        <geom type="mesh" mesh="m011_paule_2_PAULE_1_ST3215_1_v2_1" mass="0.00419652" material="servo" class="visual" />
+        <geom type="mesh" mesh="m012_paule_2_PAULE_1_ST3215_1_v2_1" mass="0.00313618" material="servo" class="visual" />
+        <geom type="mesh" mesh="m013_paule_2_PAULE_1" mass="0.00718837" material="printed" class="visual" />
+        <body name="FR_thigh" pos="0.0173502 -0.0492183 -2.23289e-05" childclass="robot">
+          <joint name="FR_thigh_joint" axis="-0.000155608 -1 -7.66436e-05" range="-2.0944 1.0472" />
+          <geom type="mesh" mesh="m014_Genoux_2_ST3215_3_ZK_122_1" mass="0.016468" material="servo" class="visual" />
+          <geom type="mesh" mesh="m015_Genoux_2_ST3215_3_SG_ZIJI_15_1" mass="0.00985142" material="servo" class="visual" />
+          <geom type="mesh" mesh="m016_Genoux_2_ST3215_3_XG_ZIJI_16_1" mass="0.012857" material="servo" class="visual" />
+          <geom type="mesh" mesh="m017_Genoux_2_ST3215_3_MOTOR_1723_3_1" mass="0.00610717" material="servo" class="visual" />
+          <geom type="mesh" mesh="m018_Genoux_2_ST3215_3_PCB_CHAZUO_92_1" mass="0.00143035" material="servo" class="visual" />
+          <geom type="mesh" mesh="m019_Genoux_2_ST3215_3_GE_27_1" mass="0.000953305" material="servo" class="visual" />
+          <geom type="mesh" mesh="m020_Genoux_2_ST3215_3_v2_1" mass="0.00419652" material="servo" class="visual" />
+          <geom type="mesh" mesh="m021_Genoux_2_ST3215_3_v2_1" mass="0.00313618" material="servo" class="visual" />
+          <geom type="mesh" mesh="m022_Genoux_2_ST3215_5_ZK_122_1" mass="0.016468" material="servo" class="visual" />
+          <geom type="mesh" mesh="m023_Genoux_2_ST3215_5_SG_ZIJI_15_1" mass="0.00985142" material="servo" class="visual" />
+          <geom type="mesh" mesh="m024_Genoux_2_ST3215_5_XG_ZIJI_16_1" mass="0.012857" material="servo" class="visual" />
+          <geom type="mesh" mesh="m025_Genoux_2_ST3215_5_MOTOR_1723_3_1" mass="0.00610717" material="servo" class="visual" />
+          <geom type="mesh" mesh="m026_Genoux_2_ST3215_5_PCB_CHAZUO_92_1" mass="0.00143035" material="servo" class="visual" />
+          <geom type="mesh" mesh="m027_Genoux_2_ST3215_5_GE_27_1" mass="0.000953305" material="servo" class="visual" />
+          <geom type="mesh" mesh="m028_Genoux_2_ST3215_5_v2_1" mass="0.00419652" material="servo" class="visual" />
+          <geom type="mesh" mesh="m029_Genoux_2_ST3215_5_v2_1" mass="0.00313618" material="servo" class="visual" />
+          <geom type="mesh" mesh="m030_Genoux_2" mass="0.0119749" material="printed" class="visual" />
+          <body name="FR_calf" pos="0.0152929 -0.0347011 -0.101051" childclass="robot">
+            <joint name="FR_calf_joint" axis="-3.07274e-05 -1 0.000327622" range="-0.9948 1.309" />
+            <geom type="mesh" mesh="m031_Jambes_2_Jambe_2" mass="0.0122189" material="printed" class="visual" />
+            <geom name="FR_foot" type="sphere" size="0.012" pos="0.0771577 -0.0109727 -0.0754068" mass="0" class="collision" />
+            <site name="FR_foot" pos="0.0771577 -0.0109727 -0.0754068" />
+          </body>
+        </body>
+      </body>
+      <body name="FL_hip" pos="0.116703 0.0247082 -0.000233768" childclass="robot">
+        <joint name="FL_hip_joint" axis="1 7.66417e-05 -0.000155614" range="-0.4887 1.6406" />
+        <geom type="mesh" mesh="m032_paule_4_PAULE_1_ST3215_1_ZK_122_1" mass="0.016468" material="servo" class="visual" />
+        <geom type="mesh" mesh="m033_paule_4_PAULE_1_ST3215_1_SG_ZIJI_15_1" mass="0.00985142" material="servo" class="visual" />
+        <geom type="mesh" mesh="m034_paule_4_PAULE_1_ST3215_1_XG_ZIJI_16_1" mass="0.012857" material="servo" class="visual" />
+        <geom type="mesh" mesh="m035_paule_4_PAULE_1_ST3215_1_MOTOR_1723_3_1" mass="0.00610717" material="servo" class="visual" />
+        <geom type="mesh" mesh="m036_paule_4_PAULE_1_ST3215_1_PCB_CHAZUO_92_1" mass="0.00143035" material="servo" class="visual" />
+        <geom type="mesh" mesh="m037_paule_4_PAULE_1_ST3215_1_GE_27_1" mass="0.000953305" material="servo" class="visual" />
+        <geom type="mesh" mesh="m038_paule_4_PAULE_1_ST3215_1_v2_1" mass="0.00419652" material="servo" class="visual" />
+        <geom type="mesh" mesh="m039_paule_4_PAULE_1_ST3215_1_v2_1" mass="0.00313618" material="servo" class="visual" />
+        <geom type="mesh" mesh="m040_paule_4_PAULE_1" mass="0.00718838" material="printed" class="visual" />
+        <body name="FL_thigh" pos="0.0171284 0.0492194 -0.000222018" childclass="robot">
+          <joint name="FL_thigh_joint" axis="-0.000155632 -1 7.66458e-05" range="-2.0944 1.0472" />
+          <geom type="mesh" mesh="m041_Genoux_4_ST3215_1_ZK_122_1" mass="0.016468" material="servo" class="visual" />
+          <geom type="mesh" mesh="m042_Genoux_4_ST3215_1_SG_ZIJI_15_1" mass="0.00985142" material="servo" class="visual" />
+          <geom type="mesh" mesh="m043_Genoux_4_ST3215_1_XG_ZIJI_16_1" mass="0.012857" material="servo" class="visual" />
+          <geom type="mesh" mesh="m044_Genoux_4_ST3215_1_MOTOR_1723_3_1" mass="0.00610717" material="servo" class="visual" />
+          <geom type="mesh" mesh="m045_Genoux_4_ST3215_1_PCB_CHAZUO_92_1" mass="0.00143035" material="servo" class="visual" />
+          <geom type="mesh" mesh="m046_Genoux_4_ST3215_1_GE_27_1" mass="0.000953305" material="servo" class="visual" />
+          <geom type="mesh" mesh="m047_Genoux_4_ST3215_1_v2_1" mass="0.00419652" material="servo" class="visual" />
+          <geom type="mesh" mesh="m048_Genoux_4_ST3215_1_v2_1" mass="0.00313618" material="servo" class="visual" />
+          <geom type="mesh" mesh="m049_Genoux_4_ST3215_2_ZK_122_1" mass="0.016468" material="servo" class="visual" />
+          <geom type="mesh" mesh="m050_Genoux_4_ST3215_2_SG_ZIJI_15_1" mass="0.00985142" material="servo" class="visual" />
+          <geom type="mesh" mesh="m051_Genoux_4_ST3215_2_XG_ZIJI_16_1" mass="0.012857" material="servo" class="visual" />
+          <geom type="mesh" mesh="m052_Genoux_4_ST3215_2_MOTOR_1723_3_1" mass="0.00610717" material="servo" class="visual" />
+          <geom type="mesh" mesh="m053_Genoux_4_ST3215_2_PCB_CHAZUO_92_1" mass="0.00143035" material="servo" class="visual" />
+          <geom type="mesh" mesh="m054_Genoux_4_ST3215_2_GE_27_1" mass="0.000953305" material="servo" class="visual" />
+          <geom type="mesh" mesh="m055_Genoux_4_ST3215_2_v2_1" mass="0.00419652" material="servo" class="visual" />
+          <geom type="mesh" mesh="m056_Genoux_4_ST3215_2_v2_1" mass="0.00313618" material="servo" class="visual" />
+          <geom type="mesh" mesh="m057_Genoux_4" mass="0.0119749" material="printed" class="visual" />
+          <body name="FL_calf" pos="0.0153253 0.0347011 -0.101038" childclass="robot">
+            <joint name="FL_calf_joint" axis="0.000268337 -1 -0.000190418" range="-0.9948 1.309" />
+            <geom type="mesh" mesh="m058_Jambes_4_Jambe_1" mass="0.0122189" material="printed" class="visual" />
+            <geom name="FL_foot" type="sphere" size="0.012" pos="0.0769833 0.0103149 -0.0759501" mass="0" class="collision" />
+            <site name="FL_foot" pos="0.0769833 0.0103149 -0.0759501" />
+          </body>
+        </body>
+      </body>
+      <body name="RR_hip" pos="-0.115766 -0.0245001 -0.000233769" childclass="robot">
+        <joint name="RR_hip_joint" axis="1 7.66422e-05 0.000155614" range="-1.6406 0.4887" />
+        <geom type="mesh" mesh="m059_paule_1_PAULE_1_ST3215_1_ZK_122_1" mass="0.016468" material="servo" class="visual" />
+        <geom type="mesh" mesh="m060_paule_1_PAULE_1_ST3215_1_SG_ZIJI_15_1" mass="0.00985142" material="servo" class="visual" />
+        <geom type="mesh" mesh="m061_paule_1_PAULE_1_ST3215_1_XG_ZIJI_16_1" mass="0.012857" material="servo" class="visual" />
+        <geom type="mesh" mesh="m062_paule_1_PAULE_1_ST3215_1_MOTOR_1723_3_1" mass="0.00610717" material="servo" class="visual" />
+        <geom type="mesh" mesh="m063_paule_1_PAULE_1_ST3215_1_PCB_CHAZUO_92_1" mass="0.00143035" material="servo" class="visual" />
+        <geom type="mesh" mesh="m064_paule_1_PAULE_1_ST3215_1_GE_27_1" mass="0.000953305" material="servo" class="visual" />
+        <geom type="mesh" mesh="m065_paule_1_PAULE_1_ST3215_1_v2_1" mass="0.00419652" material="servo" class="visual" />
+        <geom type="mesh" mesh="m066_paule_1_PAULE_1_ST3215_1_v2_1" mass="0.00313618" material="servo" class="visual" />
+        <geom type="mesh" mesh="m067_paule_1_PAULE_1" mass="0.00718836" material="printed" class="visual" />
+        <body name="RR_thigh" pos="-0.0173505 -0.0492183 -2.20185e-05" childclass="robot">
+          <joint name="RR_thigh_joint" axis="-0.000155614 -1 -7.66436e-05" range="-2.0944 1.0472" />
+          <geom type="mesh" mesh="m068_Genoux_1_ST3215_3_ZK_122_1" mass="0.016468" material="servo" class="visual" />
+          <geom type="mesh" mesh="m069_Genoux_1_ST3215_3_SG_ZIJI_15_1" mass="0.00985142" material="servo" class="visual" />
+          <geom type="mesh" mesh="m070_Genoux_1_ST3215_3_XG_ZIJI_16_1" mass="0.012857" material="servo" class="visual" />
+          <geom type="mesh" mesh="m071_Genoux_1_ST3215_3_MOTOR_1723_3_1" mass="0.00610717" material="servo" class="visual" />
+          <geom type="mesh" mesh="m072_Genoux_1_ST3215_3_PCB_CHAZUO_92_1" mass="0.00143035" material="servo" class="visual" />
+          <geom type="mesh" mesh="m073_Genoux_1_ST3215_3_GE_27_1" mass="0.000953305" material="servo" class="visual" />
+          <geom type="mesh" mesh="m074_Genoux_1_ST3215_3_v2_1" mass="0.00419652" material="servo" class="visual" />
+          <geom type="mesh" mesh="m075_Genoux_1_ST3215_3_v2_1" mass="0.00313618" material="servo" class="visual" />
+          <geom type="mesh" mesh="m076_Genoux_1_ST3215_5_ZK_122_1" mass="0.016468" material="servo" class="visual" />
+          <geom type="mesh" mesh="m077_Genoux_1_ST3215_5_SG_ZIJI_15_1" mass="0.00985142" material="servo" class="visual" />
+          <geom type="mesh" mesh="m078_Genoux_1_ST3215_5_XG_ZIJI_16_1" mass="0.012857" material="servo" class="visual" />
+          <geom type="mesh" mesh="m079_Genoux_1_ST3215_5_MOTOR_1723_3_1" mass="0.00610717" material="servo" class="visual" />
+          <geom type="mesh" mesh="m080_Genoux_1_ST3215_5_PCB_CHAZUO_92_1" mass="0.00143035" material="servo" class="visual" />
+          <geom type="mesh" mesh="m081_Genoux_1_ST3215_5_GE_27_1" mass="0.000953305" material="servo" class="visual" />
+          <geom type="mesh" mesh="m082_Genoux_1_ST3215_5_v2_1" mass="0.00419652" material="servo" class="visual" />
+          <geom type="mesh" mesh="m083_Genoux_1_ST3215_5_v2_1" mass="0.00313618" material="servo" class="visual" />
+          <geom type="mesh" mesh="m084_Genoux_1" mass="0.0119749" material="printed" class="visual" />
+          <body name="RR_calf" pos="0.0152929 -0.0347011 -0.101051" childclass="robot">
+            <joint name="RR_calf_joint" axis="-3.07221e-05 -1 0.000327622" range="-0.9948 1.309" />
+            <geom type="mesh" mesh="m085_Jambes_1_Jambe_2" mass="0.0122189" material="printed" class="visual" />
+            <geom name="RR_foot" type="sphere" size="0.012" pos="0.0769228 -0.010975 -0.0752712" mass="0" class="collision" />
+            <site name="RR_foot" pos="0.0769228 -0.010975 -0.0752712" />
+          </body>
+        </body>
+      </body>
+      <body name="RL_hip" pos="-0.115597 0.0247082 -0.000233458" childclass="robot">
+        <joint name="RL_hip_joint" axis="1 -7.6642e-05 -0.000155608" range="-0.4887 1.6406" />
+        <geom type="mesh" mesh="m086_paule_3_PAULE_1_ST3215_1_ZK_122_1" mass="0.016468" material="servo" class="visual" />
+        <geom type="mesh" mesh="m087_paule_3_PAULE_1_ST3215_1_SG_ZIJI_15_1" mass="0.00985142" material="servo" class="visual" />
+        <geom type="mesh" mesh="m088_paule_3_PAULE_1_ST3215_1_XG_ZIJI_16_1" mass="0.012857" material="servo" class="visual" />
+        <geom type="mesh" mesh="m089_paule_3_PAULE_1_ST3215_1_MOTOR_1723_3_1" mass="0.00610717" material="servo" class="visual" />
+        <geom type="mesh" mesh="m090_paule_3_PAULE_1_ST3215_1_PCB_CHAZUO_92_1" mass="0.00143035" material="servo" class="visual" />
+        <geom type="mesh" mesh="m091_paule_3_PAULE_1_ST3215_1_GE_27_1" mass="0.000953305" material="servo" class="visual" />
+        <geom type="mesh" mesh="m092_paule_3_PAULE_1_ST3215_1_v2_1" mass="0.00419652" material="servo" class="visual" />
+        <geom type="mesh" mesh="m093_paule_3_PAULE_1_ST3215_1_v2_1" mass="0.00313618" material="servo" class="visual" />
+        <geom type="mesh" mesh="m094_paule_3_PAULE_1" mass="0.00718837" material="printed" class="visual" />
+        <body name="RL_thigh" pos="-0.0175723 0.0492194 -0.000222328" childclass="robot">
+          <joint name="RL_thigh_joint" axis="-0.000155627 -1 7.66458e-05" range="-2.0944 1.0472" />
+          <geom type="mesh" mesh="m095_Genoux_3_ST3215_1_ZK_122_1" mass="0.016468" material="servo" class="visual" />
+          <geom type="mesh" mesh="m096_Genoux_3_ST3215_1_SG_ZIJI_15_1" mass="0.00985142" material="servo" class="visual" />
+          <geom type="mesh" mesh="m097_Genoux_3_ST3215_1_XG_ZIJI_16_1" mass="0.012857" material="servo" class="visual" />
+          <geom type="mesh" mesh="m098_Genoux_3_ST3215_1_MOTOR_1723_3_1" mass="0.00610717" material="servo" class="visual" />
+          <geom type="mesh" mesh="m099_Genoux_3_ST3215_1_PCB_CHAZUO_92_1" mass="0.00143035" material="servo" class="visual" />
+          <geom type="mesh" mesh="m100_Genoux_3_ST3215_1_GE_27_1" mass="0.000953305" material="servo" class="visual" />
+          <geom type="mesh" mesh="m101_Genoux_3_ST3215_1_v2_1" mass="0.00419652" material="servo" class="visual" />
+          <geom type="mesh" mesh="m102_Genoux_3_ST3215_1_v2_1" mass="0.00313618" material="servo" class="visual" />
+          <geom type="mesh" mesh="m103_Genoux_3_ST3215_2_ZK_122_1" mass="0.016468" material="servo" class="visual" />
+          <geom type="mesh" mesh="m104_Genoux_3_ST3215_2_SG_ZIJI_15_1" mass="0.00985142" material="servo" class="visual" />
+          <geom type="mesh" mesh="m105_Genoux_3_ST3215_2_XG_ZIJI_16_1" mass="0.012857" material="servo" class="visual" />
+          <geom type="mesh" mesh="m106_Genoux_3_ST3215_2_MOTOR_1723_3_1" mass="0.00610717" material="servo" class="visual" />
+          <geom type="mesh" mesh="m107_Genoux_3_ST3215_2_PCB_CHAZUO_92_1" mass="0.00143035" material="servo" class="visual" />
+          <geom type="mesh" mesh="m108_Genoux_3_ST3215_2_GE_27_1" mass="0.000953305" material="servo" class="visual" />
+          <geom type="mesh" mesh="m109_Genoux_3_ST3215_2_v2_1" mass="0.00419652" material="servo" class="visual" />
+          <geom type="mesh" mesh="m110_Genoux_3_ST3215_2_v2_1" mass="0.00313618" material="servo" class="visual" />
+          <geom type="mesh" mesh="m111_Genoux_3" mass="0.0119749" material="printed" class="visual" />
+          <body name="RL_calf" pos="0.0153253 0.0347011 -0.101038" childclass="robot">
+            <joint name="RL_calf_joint" axis="0.000268358 -1 -0.000190418" range="-0.9948 1.309" />
+            <geom type="mesh" mesh="m112_Jambes_3_Jambe_1" mass="0.0122189" material="printed" class="visual" />
+            <geom name="RL_foot" type="sphere" size="0.012" pos="0.0769833 0.0103149 -0.0759501" mass="0" class="collision" />
+            <site name="RL_foot" pos="0.0769833 0.0103149 -0.0759501" />
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <position name="FR_hip_joint" joint="FR_hip_joint" inheritrange="1" class="robot" />
+    <position name="FR_thigh_joint" joint="FR_thigh_joint" inheritrange="1" class="robot" />
+    <position name="FR_calf_joint" joint="FR_calf_joint" inheritrange="1" class="robot" />
+    <position name="FL_hip_joint" joint="FL_hip_joint" inheritrange="1" class="robot" />
+    <position name="FL_thigh_joint" joint="FL_thigh_joint" inheritrange="1" class="robot" />
+    <position name="FL_calf_joint" joint="FL_calf_joint" inheritrange="1" class="robot" />
+    <position name="RR_hip_joint" joint="RR_hip_joint" inheritrange="1" class="robot" />
+    <position name="RR_thigh_joint" joint="RR_thigh_joint" inheritrange="1" class="robot" />
+    <position name="RR_calf_joint" joint="RR_calf_joint" inheritrange="1" class="robot" />
+    <position name="RL_hip_joint" joint="RL_hip_joint" inheritrange="1" class="robot" />
+    <position name="RL_thigh_joint" joint="RL_thigh_joint" inheritrange="1" class="robot" />
+    <position name="RL_calf_joint" joint="RL_calf_joint" inheritrange="1" class="robot" />
+  </actuator>
+  <sensor>
+    <framequat name="imu_quat" objtype="site" objname="imu" />
+    <gyro name="imu_gyro" site="imu" />
+    <accelerometer name="imu_acc" site="imu" />
+  </sensor>
+  <keyframe>
+    <key name="home" qpos="0.000616379 0 0.204932 1 0 0 0 0 -0.5236 0.2793 0 -0.5236 0.2793 0 -0.5236 0.2793 0 -0.5236 0.2793" ctrl="0 -0.5236 0.2793 0 -0.5236 0.2793 0 -0.5236 0.2793 0 -0.5236 0.2793" />
+  </keyframe>
+</mujoco>

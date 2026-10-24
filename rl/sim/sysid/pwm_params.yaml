@@ -1,0 +1,13 @@
+# PWM open-loop mode (Mode 2) servo characteristics (2026-10-22, FR_thigh in-air duty steps ±200~800, HAT USB connected directly to Mac)
+# Data: sim/data/servo/20261022_215702_pwm_FR_thigh.csv
+# Model: J·dω/dt = Kt·duty − b·ω  (duty ±1000)
+omega_per_duty: 0.00506     # rad/s per duty -> no-load 5.06 rad/s @1000 (spec 4.7)
+tau_s: 0.021                # velocity time constant 21 ms (vs ~400 ms for the position-mode trajectory generator)
+kt: 0.0029                  # N·m per duty (stall torque 2.9 N·m spec value, not measured)
+damping: 0.5735             # b = kt / omega_per_duty  [N·m·s/rad]
+armature: 0.0121            # J = tau·b  [kg·m²] (reflected gear inertia)
+current_free_ma: {200: 117, 400: 552, 600: 1183, 800: 2112}   # peak current during in-air accel/decel
+# PD closed-loop hardware test (kp 8000, kd 150, 221 Hz loop on Mac): data/servo/20261022_215805_pwm_FR_thigh_pd.csv
+#   0.3 rad step 90% rise 110~145 ms, 0.6 rad 165~175 ms, overshoot ≤6%, steady-state error ≤0.5°
+#   Sim PD model (kt 0.0029, J 0.0121, 8 ms command delay, damping unchanged) matches with RMSE 0.55° -> train with servo.mode=pd
+delay_s: 0.008

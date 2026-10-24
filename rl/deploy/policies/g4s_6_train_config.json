@@ -1,0 +1,160 @@
+{
+  "env": {
+    "action_filter_alpha": 0.4,
+    "action_repeat": 1,
+    "action_scale": 0.5,
+    "command_config": {
+      "a": [
+        0.5,
+        0.25,
+        1.5
+      ],
+      "b": [
+        0.9,
+        0.25,
+        0.5
+      ],
+      "zero_prob": 0.25
+    },
+    "ctrl_dt": 0.02,
+    "episode_length": 1000,
+    "impl": "jax",
+    "naconmax": 32768,
+    "njmax": 40,
+    "noise_config": {
+      "level": 1.0,
+      "scales": {
+        "gravity": 0.05,
+        "gyro": 0.2,
+        "joint_pos": 0.03,
+        "joint_vel": 1.5,
+        "linvel": 0.1
+      }
+    },
+    "pert_config": {
+      "enable": false,
+      "kick_durations": [
+        0.05,
+        0.2
+      ],
+      "kick_wait_times": [
+        1.0,
+        3.0
+      ],
+      "velocity_kick": [
+        0.0,
+        3.0
+      ]
+    },
+    "reward_config": {
+      "max_foot_height": 0.04,
+      "scales": {
+        "action_rate": -0.01,
+        "ang_vel_xy": -0.05,
+        "dof_pos_limits": -1.0,
+        "energy": -0.001,
+        "feet_air_time": 0.1,
+        "feet_clearance": -2.0,
+        "feet_height": -0.2,
+        "feet_slip": -0.3,
+        "lin_vel_z": -0.5,
+        "orientation": -5.0,
+        "pose": 0.5,
+        "stand_still": -1.0,
+        "termination": -1.0,
+        "torques": -0.0002,
+        "tracking_ang_vel": 0.5,
+        "tracking_lin_vel": 1.0
+      },
+      "tracking_sigma_ang": 0.25,
+      "tracking_sigma_lin": 0.03
+    },
+    "servo": {
+      "a_max": [
+        7.5,
+        9.5
+      ],
+      "delay_prob": 0.5,
+      "hip_extra_delay_prob": 0.5,
+      "mode": "hybrid",
+      "pd": {
+        "armature": 0.0121,
+        "duty_max": 800,
+        "kd_duty": 150.0,
+        "kp_duty": 8000.0,
+        "kt": 0.0029,
+        "omega_noload": 5.06
+      },
+      "v_max": 4.7
+    },
+    "sim_dt": 0.002,
+    "soft_joint_pos_limit_factor": 0.95,
+    "stance_offset": [
+      0.0,
+      -0.1499,
+      0.0184,
+      0.0,
+      -0.1491,
+      0.0176,
+      0.0,
+      -0.1497,
+      0.0178,
+      0.0,
+      -0.1491,
+      0.0176
+    ]
+  },
+  "ppo": {
+    "action_repeat": 1,
+    "batch_size": 256,
+    "discounting": 0.97,
+    "entropy_cost": 0.01,
+    "episode_length": 1000,
+    "learning_rate": 0.0003,
+    "max_grad_norm": 1.0,
+    "network_factory": {
+      "policy_hidden_layer_sizes": [
+        512,
+        256,
+        128
+      ],
+      "policy_obs_key": "state",
+      "value_hidden_layer_sizes": [
+        512,
+        256,
+        128
+      ],
+      "value_obs_key": "privileged_state"
+    },
+    "normalize_observations": true,
+    "num_envs": 8192,
+    "num_evals": 60,
+    "num_minibatches": 32,
+    "num_resets_per_eval": 10,
+    "num_timesteps": 300000000,
+    "num_updates_per_batch": 4,
+    "reward_scaling": 1.0,
+    "unroll_length": 20
+  },
+  "args": {
+    "out": "/content/runs/g4s_6",
+    "num_envs": 8192,
+    "num_timesteps": 300000000,
+    "impl": "jax",
+    "seed": 0,
+    "no_randomize": false,
+    "num_evals": 60,
+    "batch_size": null,
+    "num_minibatches": null,
+    "restore": null,
+    "set": [
+      "servo.mode=\"hybrid\"",
+      "action_scale=0.5",
+      "reward_config.max_foot_height=0.04",
+      "command_config.a=[0.5,0.25,1.5]",
+      "reward_config.tracking_sigma_lin=0.03",
+      "stance_offset=[0.0,-0.1499,0.0184,0.0,-0.1491,0.0176,0.0,-0.1497,0.0178,0.0,-0.1491,0.0176]",
+      "action_filter_alpha=0.4"
+    ]
+  }
+}

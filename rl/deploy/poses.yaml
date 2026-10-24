@@ -1,0 +1,92 @@
+# Poses stored as servo values (ID: steps). go_home.py --pose <name>
+lie:    # lying pose (read from the real robot 2026-10-22: calves folded in, body lowered)
+  1: 1540
+  2: 2519
+  3: 775
+  4: 2555
+  5: 1627
+  6: 3299
+  7: 2558
+  8: 2521
+  9: 762
+  10: 1550
+  11: 1587
+  12: 3315
+center: # assembly center (marks aligned). On the floor the legs splay and it may fall → use on a stand only
+  1: 2048
+  2: 2048
+  3: 2048
+  4: 2048
+  5: 2048
+  6: 2048
+  7: 2048
+  8: 2048
+  9: 2048
+  10: 2048
+  11: 2048
+  12: 2048
+sit:    # sit: front legs at default standing pose (extended), rear legs at lying values (folded)
+  1: 1536
+  2: 2389
+  3: 1536
+  4: 2560
+  5: 1707
+  6: 2560
+  7: 2558
+  8: 2521
+  9: 762
+  10: 1550
+  11: 1587
+  12: 3315
+sit_low: # sit 2 (2026-10-22): rear hips 20° outward, rear thighs 0° (legs under body), calves folded → lower hips
+  1: 1536
+  2: 2389
+  3: 1536
+  4: 2560
+  5: 1707
+  6: 2560
+  7: 2332
+  8: 2048
+  9: 762
+  10: 1764
+  11: 2048
+  12: 3315
+crouch: # crouch: feet under body, thigh -60° calf +60° (hop prep)
+  1: 1536
+  2: 2730
+  3: 1035
+  4: 2560
+  5: 1366
+  6: 3061
+  7: 2560
+  8: 2730
+  9: 1035
+  10: 1536
+  11: 1366
+  12: 3061
+crouch_v: # vertical-jump crouch: thigh -55° calf +69°, feet directly under hips (height 12.4 cm)
+  1: 1536
+  2: 2673
+  3: 928
+  4: 2560
+  5: 1423
+  6: 3168
+  7: 2560
+  8: 2673
+  9: 928
+  10: 1536
+  11: 1423
+  12: 3168
+extend_v: # vertical-jump extension target: thigh -5° calf -34°, feet directly under hips (height 20.9 cm)
+  1: 1536
+  2: 2105
+  3: 2103
+  4: 2560
+  5: 1991
+  6: 1993
+  7: 2560
+  8: 2105
+  9: 2103
+  10: 1536
+  11: 1991
+  12: 1993
